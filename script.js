@@ -528,21 +528,34 @@ class VideoManager {
     }
     
     setupLazyLoading() {
-        if ('IntersectionObserver' in window) {
-            const videoObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const video = entry.target;
-                        video.load();
-                        videoObserver.unobserve(video);
-                    }
-                });
+        // Add debugging and error handling for videos
+        this.videos.forEach((video, index) => {
+            console.log(`Setting up video ${index}:`, video.currentSrc || video.src);
+            
+            // Add error handling
+            video.addEventListener('error', (e) => {
+                console.error(`Video ${index} error:`, e);
+                console.error('Video source:', video.currentSrc);
+                console.error('Network state:', video.networkState);
+                console.error('Ready state:', video.readyState);
             });
             
-            this.videos.forEach(video => {
-                videoObserver.observe(video);
+            video.addEventListener('loadedmetadata', () => {
+                console.log(`Video ${index} metadata loaded, duration:`, video.duration);
             });
-        }
+            
+            video.addEventListener('loadstart', () => {
+                console.log(`Video ${index} load started`);
+            });
+            
+            video.addEventListener('canplay', () => {
+                console.log(`Video ${index} can play`);
+            });
+            
+            // Force load immediately instead of lazy loading
+            video.preload = 'metadata';
+            video.load();
+        });
     }
 }
 
