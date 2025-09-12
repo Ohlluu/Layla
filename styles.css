@@ -751,7 +751,6 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     height: auto;
     transition: transform var(--duration-slow) ease;
-    opacity: 1 !important;  /* Ensure images are always visible */
 }
 
 .about-image:hover img {
@@ -775,14 +774,23 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .quote blockquote {
+    font-family: 'Playfair Display', serif;
     font-style: italic;
-    font-size: var(--text-lg);
-    margin-bottom: var(--space-sm);
+    font-size: var(--text-xl);
+    font-weight: 500;
+    line-height: 1.5;
+    margin-bottom: var(--space-md);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.5px;
 }
 
 .quote cite {
-    font-size: var(--text-sm);
-    opacity: 0.9;
+    font-family: 'Inter', sans-serif;
+    font-size: var(--text-base);
+    font-weight: 500;
+    opacity: 0.95;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.3px;
 }
 
 /* === RESUME SECTION === */
@@ -953,7 +961,6 @@ h1, h2, h3, h4, h5, h6 {
     height: 300px;
     object-fit: cover;
     transition: transform var(--duration-slow) ease;
-    opacity: 1 !important;  /* Ensure images are always visible */
 }
 
 .gallery-item:hover img {
@@ -983,13 +990,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .overlay-content h4 {
-    font-size: var(--text-lg);
+    font-family: 'Playfair Display', serif;
+    font-size: var(--text-xl);
+    font-weight: 600;
     margin-bottom: var(--space-sm);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    letter-spacing: 0.5px;
 }
 
 .overlay-content p {
-    font-size: var(--text-sm);
-    opacity: 0.9;
+    font-family: 'Inter', sans-serif;
+    font-size: var(--text-base);
+    font-weight: 400;
+    opacity: 0.95;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.3px;
 }
 
 .gallery-cta {

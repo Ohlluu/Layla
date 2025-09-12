@@ -771,7 +771,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize all components
     const loadingScreen = new LoadingScreen();
     const navigation = new Navigation();
-    const scrollAnimations = new ScrollAnimations();
+    // const scrollAnimations = new ScrollAnimations(); // Disabled to fix image visibility
     const formHandler = new FormHandler();
     const galleryManager = new GalleryManager();
     const videoManager = new VideoManager();
