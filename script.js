@@ -597,33 +597,19 @@ class PerformanceMonitor {
     }
     
     setupImageOptimization() {
+        // Simplified image loading - no opacity animations that could hide images on mobile
         const images = document.querySelectorAll('img[loading="lazy"]');
         
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        
-                        // Add fade-in effect
-                        img.style.opacity = '0';
-                        img.style.transition = 'opacity 0.3s ease';
-                        
-                        img.addEventListener('load', () => {
-                            img.style.opacity = '1';
-                        });
-                        
-                        if (img.dataset.src) {
-                            img.src = img.dataset.src;
-                        }
-                        
-                        imageObserver.unobserve(img);
-                    }
-                });
-            });
+        images.forEach(img => {
+            // Ensure immediate visibility
+            img.style.opacity = '1';
+            img.style.display = 'block';
             
-            images.forEach(img => imageObserver.observe(img));
-        }
+            if (img.dataset.src) {
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+            }
+        });
     }
 }
 

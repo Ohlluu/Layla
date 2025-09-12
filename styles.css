@@ -1457,6 +1457,20 @@ h1, h2, h3, h4, h5, h6 {
     .floating-elements {
         display: none;
     }
+    
+    /* Ensure images display properly on mobile */
+    .about-image img,
+    .gallery-item img {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        width: 100% !important;
+        height: auto !important;
+    }
+    
+    .gallery-item img {
+        height: 250px !important;
+    }
 }
 
 /* Small Mobile */
