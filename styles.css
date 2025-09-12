@@ -751,6 +751,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     height: auto;
     transition: transform var(--duration-slow) ease;
+    opacity: 1 !important;  /* Ensure images are always visible */
 }
 
 .about-image:hover img {
@@ -952,6 +953,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 300px;
     object-fit: cover;
     transition: transform var(--duration-slow) ease;
+    opacity: 1 !important;  /* Ensure images are always visible */
 }
 
 .gallery-item:hover img {
