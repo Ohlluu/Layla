@@ -960,6 +960,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     height: 300px;
     object-fit: cover;
+    object-position: center 20%;  /* Position to show more of the head */
     transition: transform var(--duration-slow) ease;
 }
 
@@ -1470,6 +1471,7 @@ h1, h2, h3, h4, h5, h6 {
     
     .gallery-item img {
         height: 250px !important;
+        object-position: center 20% !important;  /* Show more of the head on mobile */
     }
 }
 

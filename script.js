@@ -11,7 +11,7 @@ const CONFIG = {
     
     OBSERVER_OPTIONS: {
         root: null,
-        rootMargin: '-10% 0px -10% 0px',
+        rootMargin: '0px 0px -5% 0px',  // Trigger earlier for faster appearance
         threshold: 0.1
     },
     
@@ -281,8 +281,8 @@ class ScrollAnimations {
         const galleryItems = document.querySelectorAll('.gallery-item');
         galleryItems.forEach((element, index) => {
             element.style.opacity = '0';
-            element.style.transform = 'translateY(60px)';
-            element.style.transition = `all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${index * 0.1}s`;
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = `all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${index * 0.05}s`;
             // Ensure images within gallery items remain visible
             const img = element.querySelector('img');
             if (img) {
@@ -293,8 +293,8 @@ class ScrollAnimations {
         
         elementsToAnimate.forEach((element, index) => {
             element.style.opacity = '0';
-            element.style.transform = 'translateY(60px)';
-            element.style.transition = `all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${index * 0.1}s`;
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = `all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${index * 0.05}s`;
             this.observer.observe(element);
         });
     }
@@ -757,7 +757,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize all components
     const loadingScreen = new LoadingScreen();
     const navigation = new Navigation();
-    // const scrollAnimations = new ScrollAnimations(); // Disabled to fix image visibility
+    const scrollAnimations = new ScrollAnimations(); // Re-enabled with faster animations
     const formHandler = new FormHandler();
     const galleryManager = new GalleryManager();
     const videoManager = new VideoManager();
