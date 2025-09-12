@@ -281,8 +281,8 @@ class ScrollAnimations {
         const galleryItems = document.querySelectorAll('.gallery-item');
         galleryItems.forEach((element, index) => {
             element.style.opacity = '0';
-            element.style.transform = 'translateY(30px)';
-            element.style.transition = `all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${index * 0.05}s`;
+            element.style.transform = 'translateY(40px)';
+            element.style.transition = `all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${index * 0.08}s`;
             // Ensure images within gallery items remain visible
             const img = element.querySelector('img');
             if (img) {
@@ -293,8 +293,8 @@ class ScrollAnimations {
         
         elementsToAnimate.forEach((element, index) => {
             element.style.opacity = '0';
-            element.style.transform = 'translateY(30px)';
-            element.style.transition = `all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${index * 0.05}s`;
+            element.style.transform = 'translateY(40px)';
+            element.style.transition = `all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${index * 0.08}s`;
             this.observer.observe(element);
         });
     }
