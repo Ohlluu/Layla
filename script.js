@@ -375,7 +375,7 @@ class FormHandler {
         const originalText = submitButton.dataset.originalText;
         
         submitButton.disabled = false;
-        submitButton.querySelector('.btn-text').textContent = 'Message Sent! 🎭';
+        submitButton.querySelector('.btn-text').textContent = 'Message Sent! ✨';
         submitButton.style.background = 'linear-gradient(135deg, #10B981 0%, #34D399 100%)';
         
         setTimeout(() => {
@@ -626,7 +626,7 @@ class PerformanceMonitor {
             const navigation = performance.getEntriesByType('navigation')[0];
             if (navigation) {
                 const loadTime = navigation.loadEventEnd - navigation.loadEventStart;
-                console.log(`🎭 Page loaded in ${loadTime}ms`);
+                console.log(`✨ Page loaded in ${loadTime}ms`);
             }
             
             if ('PerformanceObserver' in window) {
@@ -753,7 +753,7 @@ class TheatreEffects {
         for (let i = 0; i < 3; i++) {
             setTimeout(() => {
                 const sparkle = document.createElement('span');
-                sparkle.innerHTML = '🎭';
+                sparkle.innerHTML = '✨';
                 sparkle.style.cssText = `
                     position: absolute;
                     pointer-events: none;
@@ -816,7 +816,7 @@ class TheatreEffects {
 
 // ===== INITIALIZATION =====
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('🎭 Layla Noelle Kuck Portfolio - Initializing...');
+    console.log('✨ Layla Noelle Kuck Portfolio - Initializing...');
     
     // Initialize all components
     const loadingScreen = new LoadingScreen();
@@ -835,7 +835,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Add theatre-themed console message
     console.log(`
-    🎭 Welcome to Layla's Musical Theatre Portfolio!
+    ✨ Welcome to Layla's Musical Theatre Portfolio!
     
     ✨ Features:
     - Elegant pink theme with rose gold accents
@@ -862,7 +862,7 @@ document.addEventListener('keydown', (e) => {
         if (window.konamiIndex === konamiCode.length) {
             // Activate theatre mode
             document.body.style.animation = 'theatreMode 3s ease-in-out';
-            console.log('🎭 Theatre Mode Activated!');
+            console.log('✨ Theatre Mode Activated!');
             
             // Add special theatre mode animation
             const style = document.createElement('style');
