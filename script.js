@@ -538,6 +538,44 @@ class VideoManager {
                 console.error('Video source:', video.currentSrc);
                 console.error('Network state:', video.networkState);
                 console.error('Ready state:', video.readyState);
+                
+                // Show fallback message for users
+                const container = video.parentElement;
+                const errorMsg = document.createElement('div');
+                errorMsg.className = 'video-error-message';
+                errorMsg.innerHTML = `
+                    <div style="
+                        display: flex; 
+                        flex-direction: column; 
+                        align-items: center; 
+                        justify-content: center; 
+                        height: 100%; 
+                        background: rgba(0,0,0,0.8); 
+                        color: white; 
+                        text-align: center;
+                        padding: 20px;
+                        border-radius: 12px;
+                    ">
+                        <h4>Video Unavailable</h4>
+                        <p>This video format is not supported by your browser.</p>
+                        <a href="${video.currentSrc || video.src}" download style="
+                            color: #ff6b9d; 
+                            text-decoration: none; 
+                            border: 2px solid #ff6b9d; 
+                            padding: 10px 20px; 
+                            border-radius: 25px; 
+                            margin-top: 10px;
+                            display: inline-block;
+                        ">Download Video</a>
+                    </div>
+                `;
+                errorMsg.style.position = 'absolute';
+                errorMsg.style.top = '0';
+                errorMsg.style.left = '0';
+                errorMsg.style.right = '0';
+                errorMsg.style.bottom = '0';
+                errorMsg.style.zIndex = '10';
+                container.appendChild(errorMsg);
             });
             
             video.addEventListener('loadedmetadata', () => {
@@ -551,6 +589,19 @@ class VideoManager {
             video.addEventListener('canplay', () => {
                 console.log(`Video ${index} can play`);
             });
+            
+            // Check if browser can play video format
+            const canPlayMov = video.canPlayType('video/quicktime');
+            const canPlayMp4 = video.canPlayType('video/mp4');
+            
+            console.log(`Video ${index} format support:`, {
+                'MOV/QuickTime': canPlayMov,
+                'MP4': canPlayMp4
+            });
+            
+            if (!canPlayMov && !canPlayMp4) {
+                console.warn(`Video ${index}: Browser may not support this video format`);
+            }
             
             // Force load immediately instead of lazy loading
             video.preload = 'metadata';
